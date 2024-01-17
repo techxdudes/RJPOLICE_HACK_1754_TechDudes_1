@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Feedback System</title>
+    <style>
+        /* CSS code for styling the homepage */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header section */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+        }
+
+        .header-logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .header-title {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .header-nav {
+            display: flex;
+            list-style: none;
+        }
+
+        .header-nav li {
+            margin: 0 10px;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .header-nav a:hover {
+            color: yellow;
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 500px;
+            background-image: url("https://img.freepik.com/free-vector/caution-alert-safety-background-with-blank-space-vector_1017-45794.jpg?size=626&ext=jpg&ga=GA1.1.1412446893.1704585600&semt=ais");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-message {
+            max-width: 600px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        /* Quick feedback submission section */
+        .feedback {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .feedback-button {
+            width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background-color: #003366;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .feedback-button:hover {
+            background-color: #0066cc;
+        }
+
+        /* Dynamic feedback statistics section */
+        /* Add your styling here */
+        .statistics {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .statistics-item {
+            width: 300px;
+            height: 150px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #003366;
+            position: relative;
+        }
+
+        .statistics-item p {
+            margin: 10px 0;
+        }
+
+        .positive {
+            background-color: #3d9970;
+        }
+
+        .negative {
+            background-color: #ff4136;
+            color: white;
+        }
+
+        /* Community stories or testimonials section */
+        .stories {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .stories-item {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .stories-item img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 1%;
+        }
+
+        .stories-item p {
+            font-size: 18px;
+            font-style: italic;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .stories-item span {
+            font-size: 16px;
+            font-weight: bold;
+            color: #003366;
+            margin: 10px;
+        }
+
+        /* Featured categories section */
+        .categories {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .categories-item {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: #003366;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .categories-item:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        /* Latest feedback feed section */
+        .feed {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .feed-item {
+            width: 800px;
+            height: 100px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .feed-item-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 10px;
+        }
+
+        .feed-item-summary {
+            width: 500px;
+            height: 80px;
+            font-size: 18px;
+            overflow: hidden;
+            margin: 10px;
+        }
+
+        .feed-item-timestamp {
+            width: 100px;
+            height: 80px;
+            font-size: 16px;
+            color: #003366;
+            margin: 10px;
+        }
+
+        /* Engagement features section */
+        .engagement {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .engagement-item {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: #003366;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .engagement-item:hover {
+            background-color: #003366;
+            color: white;
+        }
+
+        /* Community updates or announcements section */
+        .updates {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .updates-item {
+            width: 300px;
+            height: 400px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .updates-item img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+            padding-top: 5px;
+        }
+
+        .updates-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #003366;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .updates-item p {
+            font-size: 16px;
+            text-align: justify;
+            padding: 10px;
+        }
+
+        /* Footer section */
+        .footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #003366;
+            color: white;
+            padding: 10px;
+        }
+
+        .footer-logo {
+            width: 100px;
+            height: 100px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-info p {
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .footer-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            color: yellow;
+        }
+
+        .footer-social {
+            display: flex;
+            list-style: none;
+        }
+
+        .footer-social li {
+            margin: 0 10px;
+        }
+
+        .footer-social a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            color: yellow;
+        }
+
+
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Chatbot container styling */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Chat messages styling */
+        #chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        /* Input area styling */
+        #chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #send-button {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+
+            /* Styles for screens up to 600px wide */
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+        }
+
+        @media only screen and (max-width: 768px) {
+
+            /* Styles for screens up to 768px wide */
+            .categories-item,
+            .stories-item,
+            .updates-item {
+                width: 100%;
+
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- HTML code for the homepage -->
+        <!-- Header section -->
+        <div class="header">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Emblem_of_India_%28Tira%E1%B9%85g%C4%81%29.svg/1433px-Emblem_of_India_%28Tira%E1%B9%85g%C4%81%29.svg.png"
+                alt="System logo" class="header-logo">
+            <h1 class="header-title">Police Feedback System</h1>
+            <ul class="header-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Feedback</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+    </header>
+    <br />
+    <section>
+        <!-- Hero section -->
+        <div class="hero">
+            <p class="hero-message">Welcome to the Police Feedback System, a platform where you can share your opinions
+                and experiences with the police services. Your feedback is valuable and helps us improve our performance
+                and serve you better.</p>
+        </div>
+        <br />
+        <!-- Quick feedback submission section -->
+        <div class="feedback">
+            <button class="feedback-button" onclick="window.location.href='/feedback.html'">Submit Feedback</button>
+        </div>
+        <br />
+        <!-- Dynamic feedback statistics section -->
+        <div class="statistics">
+            <!-- Positive Feedback Counter -->
+            <div class="statistics-item positive">
+                <p id="positive-counter">0</p>
+                <p>Positive Feedback</p>
+            </div>
+            <!-- Negative Feedback Counter -->
+            <div class="statistics-item negative">
+                <p id="negative-counter">0</p>
+                <p>Negative Feedback</p>
+            </div>
+        </div>
+        <br />
+        <!-- Community stories or testimonials section -->
+        <div class="stories">
+            <div class="stories-item">
+                <img src="https://pbs.twimg.com/profile_images/547076023494254592/Fh0Ujrr7_400x400.jpeg"
+                    alt="Community story image">
+                <p>"I am very grateful to the police officers who helped me recover my stolen bike. They were polite,
+                    professional, and efficient. They also gave me some tips on how to prevent theft in the future."</p>
+                <span>Rajesh, Jaipur</span>
+            </div>
+            <div class="stories-item">
+                <img src="https://th.bing.com/th/id/R.377e8b968dc5c812703a6b76c6761b88?rik=9zFRZqH2%2fnGl%2bA&riu=http%3a%2f%2f1.bp.blogspot.com%2f-_EbbnAAjnqM%2fTcafiRb_FfI%2fAAAAAAAAAGY%2fJdJC8L9L9I4%2fs1600%2f531_AM-395.jpg&ehk=t9WHm5hiw25syd6h0tXapfLnFKMmHdBhDppjWTKZLVk%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
+                    alt="Community story image">
+                <p>"The police officers who responded to my emergency call were very courteous and compassionate. They
+                    arrived quickly and handled the situation with care. They also followed up with me later to make
+                    sure I was okay."</p>
+                <span>Priya, Jaipur</span>
+            </div>
+            <div class="stories-item">
+                <img src="https://th.bing.com/th/id/R.aecce39602b0e30f5cffa8a049f91e3c?rik=7d8b6DVl1Y74CA&riu=http%3a%2f%2fwww.clker.com%2fcliparts%2fa%2fe%2fc%2fc%2f1364125264782739178passport.jpg&ehk=fXajciNC5FhII0X5s%2frc89fIo67eOYWAa5k78uYUEew%3d&risl=&pid=ImgRaw&r=0"
+                    alt="Community story image">
+                <p>"I was impressed by the police officers who conducted a safety awareness workshop in our
+                    neighborhood. They were friendly, informative, and engaging. They also answered all our questions
+                    and concerns."</p>
+                <span>Amit, Jaipur</span>
+            </div>
+        </div>
+        <br />
+        <!-- Featured categories section -->
+        <!-- Featured categories section -->
+        <div class="categories">
+            <div class="categories-item" onclick="openModal('modalSafety')">Safety</div>
+            <div class="categories-item" onclick="openModal('modalPoliteness')">Politeness</div>
+            <div class="categories-item" onclick="openModal('modalResponseTime')">Response Time</div>
+        </div>
+
+        <br />
+        <!-- Latest feedback feed section -->
+        <div class="feed">
+            <div class="feed-item">
+                <img src="download.png" alt="User avatar" class="feed-item-avatar">
+                <p class="feed-item-summary">"I had a bad experience with the police officers who stopped me for a
+                    traffic violation. They were rude, aggressive, and disrespectful. They also fined me unfairly and
+                    threatened me with arrest."</p>
+                <span class="feed-item-timestamp">5 minutes ago</span>
+            </div>
+            <div class="feed-item">
+                <img src="download.png" alt="User avatar" class="feed-item-avatar">
+                <p class="feed-item-summary">"I had a good experience with the police officers who helped me find my
+                    lost wallet. They were kind, helpful, and honest. They also returned my wallet with all the contents
+                    intact."</p>
+                <span class="feed-item-timestamp">10 minutes ago</span>
+            </div>
+            <div class="feed-item">
+                <img src="download.png" alt="User avatar" class="feed-item-avatar">
+                <p class="feed-item-summary">"I had a mixed experience with the police officers who investigated a
+                    burglary at my home. They were prompt, diligent, and thorough. However, they also seemed
+                    indifferent, impatient, and dismissive."</p>
+                <span class="feed-item-timestamp">15 minutes ago</span>
+            </div>
+        </div>
+        <br />
+        <!-- Engagement features section -->
+        <div class="engagement">
+            <div class="engagement-item" onclick="likeFeedback()">Like</div>
+            <div class="engagement-item" onclick="commentFeedback()">Comment</div>
+            <div class="engagement-item" onclick="shareFeedback()">Share</div>
+        </div>
+        <br />
+        <!-- Community updates or announcements section -->
+        <div class="updates">
+            <div class="updates-item">
+                <img src="OIG.jpeg" alt="Community update image">
+                <h3>New Police Station Inaugurated</h3>
+                <p>A new police station has been inaugurated in the city to provide better services and security to the
+                    citizens. The police station is equipped with modern facilities and technology to enhance the
+                    efficiency and effectiveness of the police force.</p>
+            </div>
+            <div class="updates-item">
+                <img src="PRD.jpeg" alt="Community update image">
+                <h3>Police Recruitment Drive Launched</h3>
+                <p>A police recruitment drive has been launched to attract more young and talented people to join the
+                    police force. The recruitment drive aims to increase the diversity and representation of the police
+                    force and to fill the vacancies in various ranks and departments.</p>
+            </div>
+            <div class="updates-item">
+                <img src="PTP.jpeg" alt="Community update image">
+                <h3>Police Training Program Initiated</h3>
+                <p>A police training program has been initiated to improve the skills and knowledge of the police
+                    officers. The training program covers various topics such as human rights, ethics, communication,
+                    law, and technology.</p>
+            </div>
+        </div>
+        <br />
+    </section>
+    <footer>
+        <!-- Footer section -->
+        <div class="footer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Emblem_of_India_%28Tira%E1%B9%85g%C4%81%29.svg/1433px-Emblem_of_India_%28Tira%E1%B9%85g%C4%81%29.svg.png"
+                alt="System logo" class="footer-logo">
+            <div class="footer-info">
+                <p>Police Feedback System</p>
+                <p>Contact us: 1800-111-222</p>
+                <p>Email us: policefeedback@police.gov.in</p>
+                <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+            <ul class="footer-social">
+                <li><a href="#"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Facebook_icon.svg/1200px-Facebook_icon.svg.png"
+                            alt="Facebook logo" width="50" height="50"></a></li>
+                <li><a href="#"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png"
+                            alt="Instagram logo" width="50" height="50"></a></li>
+                <li><a href="#"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png"
+                            alt="Telegram logo" width="50" height="50"></a></li>
+            </ul>
+        </div>
+        </div>
+    </footer>
+    <!-- Safety Modal -->
+    <div id="modalSafety" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalSafety')">&times;</span>
+            <h2>Safety Feedback</h2>
+            <p>Thank you for providing safety feedback. Your input helps us enhance safety measures and procedures. Here
+                are some recent safety-related feedback:</p>
+            <ul>
+                <li>"The police presence during community events is reassuring. Kudos to Officer Sharma for ensuring our
+                    safety"</li>
+                <li>"Prompt response to reports of suspicious activities in the neighborhood."</li>
+                <li>"Safety workshops have been informative and helpful."</li>
+                <li>"पड़ोस में संदेहास्पद गतिविधियों के सूचनाओं के प्रति त्वरित प्रतिक्रिया। कॉन्स्टेबल पटेल ने त्वरित
+                    और पेशेवर तरीके से कार्रवाई की।"</li>
+                <li>"Police dwara conduct kiye gaye safety workshops informative aur helpful the. Constable Gupta ne
+                    safety measures ko clear aur concise taur pe explain kiya."</li>
+                <li>"Meri locality ke paas ek emergency situation mein quick response. Thanks to Officer Khan ki hamari
+                    safety ka dhyan rakhne ke liye."</li>
+                <li>"ऑफिसर देसाई ने रात्रि के समय पैट्रोलिंग के दौरान अद्वितीय सतर्कता दिखाई। उनका मोहल्ले की सुरक्षा के
+                    प्रति समर्पण प्रशंसनीय है।"</li>
+                <li>"I want to acknowledge Officer Kapoor for the informative road safety campaigns. It reflects a
+                    commitment to our well-being."</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Politeness Modal -->
+    <div id="modalPoliteness" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalPoliteness')">&times;</span>
+            <h2>Politeness Feedback</h2>
+            <p>Your feedback on politeness is valued. Politeness is a key aspect of our service. Here are some recent
+                politeness-related feedback:</p>
+            <ul>
+                <li>"Officers were courteous and respectful during a routine traffic stop."</li>
+                <li>"Helpful and polite assistance provided during a community event."</li>
+                <li>"Positive interactions with officers during public engagements."</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Response Time Modal -->
+    <div id="modalResponseTime" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalResponseTime')">&times;</span>
+            <h2>Response Time Feedback</h2>
+            <p>Feedback on response time is crucial for our continuous improvement. Here are some recent response
+                time-related feedback:</p>
+            <ul>
+                <li>"Quick response to emergency calls, greatly appreciated."</li>
+                <li>"Efficient handling of a reported incident with a swift response."</li>
+                <li>"Timely arrival during a community event ensured safety."</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Chatbot container -->
+    <div id="chatbot-container">
+        <!-- Chat messages -->
+        <div id="chat-messages"></div>
+
+        <!-- User input area -->
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // Chatbot functionality
+        function sendMessage() {
+            // Get user input
+            const userInput = document.getElementById('user-input').value;
+
+            // Create a new message element
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `User: ${userInput}`;
+
+            // Display user message in the chat
+            document.getElementById('chat-messages').appendChild(messageElement);
+
+            // Clear the user input
+            document.getElementById('user-input').value = '';
+
+            // Simulate a response from the chatbot (replace with your actual chatbot logic)
+            setTimeout(() => {
+                const botResponse = document.createElement('div');
+                botResponse.textContent = 'Chatbot: Thanks for your message!';
+
+                document.getElementById('chat-messages').appendChild(botResponse);
+            }, 1000);
+        }
+
+        // Example data (you can replace this with real-time data)
+        let positiveFeedback = 0;
+        let negativeFeedback = 0;
+
+        // Function to update counters
+        function updateCounters() {
+            document.getElementById('positive-counter').textContent = positiveFeedback;
+            document.getElementById('negative-counter').textContent = negativeFeedback;
+        }
+
+        // Simulate real-time updates (replace this with your actual data fetching logic)
+        function simulateRealTimeUpdates() {
+            setInterval(() => {
+                // Simulate positive and negative feedback updates
+                positiveFeedback += Math.floor(Math.random() * 5);
+                negativeFeedback += Math.floor(Math.random() * 3);
+
+                updateCounters();
+            }, 3000); // Update every 3 seconds (adjust as needed)
+        }
+
+        // Initiate simulation on page load
+        simulateRealTimeUpdates();
+
+        // Function to open a modal
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        }
+
+        // Function to close a modal
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function (event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        };
+
+    </script>
+</body>
+
+</html>

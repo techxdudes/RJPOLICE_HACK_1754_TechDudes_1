@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Feedback System</title>
+    <style>
+        /* Add your existing CSS styles here */
+
+        /* Chatbot container styling */
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Chat messages styling */
+        #chat-messages {
+            flex-grow: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        /* Input area styling */
+        #chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #send-button {
+            background-color: #003366;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML content here -->
+
+    <!-- Chatbot container -->
+    <div id="chatbot-container">
+        <!-- Chat messages -->
+        <div id="chat-messages"></div>
+        
+        <!-- User input area -->
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Your existing JavaScript code here -->
+
+    <script>
+        // Chatbot functionality
+        function sendMessage() {
+            // Get user input
+            const userInput = document.getElementById('user-input').value;
+
+            // Create a new message element
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `User: ${userInput}`;
+            
+            // Display user message in the chat
+            document.getElementById('chat-messages').appendChild(messageElement);
+
+            // Clear the user input
+            document.getElementById('user-input').value = '';
+
+            // Simulate a response from the chatbot (replace with your actual chatbot logic)
+            setTimeout(() => {
+                const botResponse = document.createElement('div');
+                botResponse.textContent = 'Chatbot: Thanks for your message!';
+
+                document.getElementById('chat-messages').appendChild(botResponse);
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

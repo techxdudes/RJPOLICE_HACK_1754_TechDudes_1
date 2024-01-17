@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Page</title>
+    <style>
+        /* CSS code for styling the feedback page */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Feedback form section */
+        .feedback-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .feedback-form form {
+            width: 600px;
+            height: 600px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            background-color: white;
+            padding: 20px;
+        }
+
+        .feedback-form h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #003366;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .feedback-form p {
+            font-size: 18px;
+            color: #003366;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .feedback-form label {
+            font-size: 16px;
+            color: #003366;
+            margin: 10px;
+        }
+
+        .feedback-form input, .feedback-form select, .feedback-form textarea {
+            width: 500px;
+            height: 40px;
+            border: 1px solid #003366;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .feedback-form textarea {
+            height: 200px;
+            resize: none;
+        }
+
+        .feedback-form button {
+            width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 10px;
+            background-color: #003366;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px auto;
+            display: block;
+        }
+
+        .feedback-form button:hover {
+            background-color: #0066cc;
+        }
+    </style>
+</head>
+<body>
+    <!-- HTML code for the feedback page -->
+    <!-- Feedback form section -->
+    <div class="feedback-form">
+        <form action="#" method="POST">
+            <h2>Feedback Form</h2>
+            <p>Please fill out this form to share your feedback with us.</p>
+            <label for="name">Name (optional):</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <label for="email">Email (optional):</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <label for="category">Feedback Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select a category</option>
+                <option value="Safety">Safety</option>
+                <option value="Politeness">Politeness</option>
+                <option value="Response Time">Response Time</option>
+                <option value="Other">Other</option>
+            </select>
+            <label for="rating">Feedback Rating:</label>
+            <select id="rating" name="rating" required>
+                <option value="">Select a rating</option>
+                <option value="1">1 - Very Poor</option>
+                <option value="2">2 - Poor</option>
+                <option value="3">3 - Average</option>
+                <option value="4">4 - Good</option>
+                <option value="5">5 - Very Good</option>
+            </select>
+            <label for="comment">Feedback Comment:</label>
+            <textarea id="comment" name="comment" placeholder="Enter your comment" required></textarea>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+</body>
+</html>
