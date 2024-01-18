@@ -11,8 +11,6 @@
     <title>Home</title>
     <style>
         /* Header section */
-
-        /* Header section */
         .header {
             display: flex;
             align-items: center;
@@ -666,31 +664,23 @@
 
             const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 
-            window.onscroll = function () {
-                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                    scrollToTopBtn.style.display = 'block';
-                } else {
-                    scrollToTopBtn.style.display = 'none';
-                }
-            };
+    window.onscroll = function () {
+        if (window.pageYOffset > 20) { 
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    };
 
-            scrollToTopBtn.onclick = function () {
-                document.body.scrollTop = 0; // For Safari
-                document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-            };
+    scrollToTopBtn.onclick = function () {
+        // Smooth scroll to the top
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
-            // Mock data for demonstration
-            const quotes = [
-                "Safety is not a slogan. It's a way of life.",
-                "Together, we can make our community safer and stronger.",
-                "Building trust one interaction at a time.",
-                // Add more quotes as needed
-            ];
 
-            // Display a random quote
-            const randomQuoteElement = document.getElementById('random-quote');
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            randomQuoteElement.innerText = randomQuote;
 
         </script>
 
